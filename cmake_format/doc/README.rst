@@ -409,3 +409,27 @@ into this:
     foo(some_arg some_arg "
         This string is on multiple lines
     ")
+
+---------------------------
+Version control integration
+---------------------------
+
+You can use `pre-commit`_ to easily add
+``cmake-format`` as a pre-commit hook in your git repository. Once
+you `have it installed`_, add this
+to the ``.pre-commit-config.yaml`` in your repository:
+
+.. code:: yaml
+
+    repos:
+    -   repo: https://github.com/cheshirekow/cmake_format.git
+        rev: master
+        hooks:
+        - id: cmake-format
+          args: [--in-place]
+
+Then run ``pre-commit install`` and the hooks will be set up.
+
+.. _`pre-commit`: https://pre-commit.com/
+.. _`have it installed`: https://pre-commit.com/#install
+
